@@ -1,19 +1,20 @@
 package com.example.sacre.listdual;
 
+import java.util.List;
+
 public class alumno {
 
     private int id_alumno;
-    private String[] asignaturas_alumno;
+
+    private List<String> asignaturas_alumno;
     private String nombre_alumno, email_alumno;
 
-    public alumno(int identficador, String[] asignaturas, String nombre, String email ){
+    public alumno(int identficador, List<String> asignaturas, String nombre, String email ){
         id_alumno = identficador;
         asignaturas_alumno = asignaturas;
         nombre_alumno = nombre;
         email_alumno = email;
     }
-
-
 
     public int getId_alumno() {
         return id_alumno;
@@ -39,12 +40,12 @@ public class alumno {
         this.nombre_alumno = nombre_alumno;
     }
 
-    public String[] getAssgnatiruas_alumno() {
+    public List<String> getAsignaturas_alumno() {
         return asignaturas_alumno;
     }
 
-    public void setAssgnatiruas_alumno(String[] assgnatiruas_alumno) {
-        this.asignaturas_alumno = assgnatiruas_alumno;
+    public void setAsignaturas_alumno(List<String> asignaturas_alumno) {
+        this.asignaturas_alumno = asignaturas_alumno;
     }
 
 }
