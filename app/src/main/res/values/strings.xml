@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ListDUAL</string>
+    <string name="nom_hint">Nom</string>
+    <string name="email_hint">Email</string>
+    <string name="asignaturas_hint">Asignaturas</string>
+    <string name="add_placeholder">Add</string>
+</resources>
