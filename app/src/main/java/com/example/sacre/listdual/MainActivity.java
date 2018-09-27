@@ -1,26 +1,21 @@
 package com.example.sacre.listdual;
 
-import android.content.Intent;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-
-import static android.R.layout.simple_list_item_1;
 
 public class MainActivity extends AppCompatActivity {
 
     TextInputEditText nombre_input, email_input, asignaturas_input, identificador_input;
     Button add;
-    ArrayList<alumno> list = new ArrayList<alumno>();
-    RecyclerView show;
+    ArrayList<alumno> list = new ArrayList<>();
+    //RecyclerView show;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         email_input = (TextInputEditText) findViewById(R.id.email_input);
         asignaturas_input = (TextInputEditText) findViewById(R.id.asignaturas_input);
         identificador_input = (TextInputEditText) findViewById(R.id.identificador_input);
-        show = (RecyclerView) findViewById(R.id.showAlumn);
+        //show = (RecyclerView) findViewById(R.id.showAlumn);
 
 
         add.setOnClickListener(new View.OnClickListener() {
@@ -40,14 +35,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 new_Alumno();
-                if (list.contains(identificador_input)){
-                    Toast.makeText(getBaseContext(),"Ya existe un alumno añadido con este identificador",Toast.LENGTH_LONG).show();
-                } else if (identificador_input == null){
-                    Toast.makeText(getBaseContext(),"El identificador esta vacio",Toast.LENGTH_LONG).show();
-                } else {
-
-                }
-
             }
         });
     }
@@ -69,14 +56,35 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(getBaseContext(),"Falta añadir el identificador del alumno", Toast.LENGTH_LONG).show();
         } else {
             alumno nuevoAlumno = new alumno(i_Alumno,a_Alumno,n_Alumno,e_Alumno);
+
+            Log.i("AVISO", "new_Alumno: "+nuevoAlumno.toString());
             list.add(nuevoAlumno);
 
+            /*
+                Toast.makeText(getBaseContext(),"Ya existe un alumno añadido con este identificador",Toast.LENGTH_LONG).show();
 
-
+                Toast.makeText(getBaseContext(),"El identificador esta vacio",Toast.LENGTH_LONG).show();
+           */
             Toast.makeText(getBaseContext(),"Alumno añadido"+"\n"+"Nombre:"+n_Alumno+"\n" +
-                    "Email:"+e_Alumno+ "\n" +
-                    "Asignatura:"+a_Alumno+ "\n" +
-                    "Identificador:"+i_Alumno_string  ,Toast.LENGTH_LONG).show();
+                "Email:"+e_Alumno+ "\n" +
+                "Asignatura:"+a_Alumno+ "\n" +
+                "Identificador:"+i_Alumno_string  ,Toast.LENGTH_LONG).show();
+
+            int arrayList_size = list.size();
+            for (int x=0;x<arrayList_size;x++){
+
+            }
+        }
+    }
+
+    private boolean checkIdentificador(int ident){
+        String comprobante = identificador_input.getText().toString();
+        int comprobante_int = Integer.parseInt(comprobante);
+
+        if (ident == comprobante_int){
+            return true;
+        } else {
+            return false;
         }
     }
 
