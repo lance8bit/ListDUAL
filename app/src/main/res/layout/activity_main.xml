@@ -16,6 +16,7 @@
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:id="@+id/nom_input"
             android:hint="@string/nom_hint" />
     </android.support.design.widget.TextInputLayout>
 
@@ -27,7 +28,20 @@
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:id="@+id/email_input"
             android:hint="@string/email_hint" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_marginBottom="20dp"
+        android:layout_height="40dp">
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/asignaturas_input"
+            android:hint="@string/asignaturas_hint" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -37,14 +51,20 @@
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:hint="@string/asignaturas_hint" />
+            android:id="@+id/identificador_input"
+            android:hint="@string/identificador_hint" />
     </android.support.design.widget.TextInputLayout>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonAdd"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/add_placeholder" />
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:id="@+id/showAlumn"
+        android:layout_height="match_parent" />
 
 </LinearLayout>

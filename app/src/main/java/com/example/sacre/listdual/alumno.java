@@ -6,10 +6,10 @@ public class alumno {
 
     private int id_alumno;
 
-    private List<String> asignaturas_alumno;
+    private String asignaturas_alumno;
     private String nombre_alumno, email_alumno;
 
-    public alumno(int identficador, List<String> asignaturas, String nombre, String email ){
+    public alumno(int identficador, String asignaturas, String nombre, String email ){
         id_alumno = identficador;
         asignaturas_alumno = asignaturas;
         nombre_alumno = nombre;
@@ -40,12 +40,8 @@ public class alumno {
         this.nombre_alumno = nombre_alumno;
     }
 
-    public List<String> getAsignaturas_alumno() {
-        return asignaturas_alumno;
-    }
+    public String getAsignaturas_alumno() {return asignaturas_alumno; }
 
-    public void setAsignaturas_alumno(List<String> asignaturas_alumno) {
-        this.asignaturas_alumno = asignaturas_alumno;
-    }
+    public void setAsignaturas_alumno(String asignaturas_alumno) {this.asignaturas_alumno = asignaturas_alumno; }
 
 }
