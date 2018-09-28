@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
         identificador_input = (TextInputEditText) findViewById(R.id.identificador_input);
         //show = (RecyclerView) findViewById(R.id.showAlumn);
 
-
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
