@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.security.KeyStore;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -33,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 new_Alumno();
             }
         });
@@ -58,35 +58,38 @@ public class MainActivity extends AppCompatActivity {
             alumno nuevoAlumno = new alumno(i_Alumno,a_Alumno,n_Alumno,e_Alumno);
 
             Log.i("AVISO", "new_Alumno: "+nuevoAlumno.toString());
-            list.add(nuevoAlumno);
+            comprobarAlum();
+            Log.i("CARGANDO", "comprobarAlum: "+comprobarAlum());
+
+            if (comprobarAlum()== true){
+                Toast.makeText(getBaseContext(),"Ya existe un alumno añadido con este identificador",Toast.LENGTH_LONG).show();
+            } else {
+                list.add(nuevoAlumno);
+                Toast.makeText(getBaseContext(),"Alumno añadido"+"\n"+"Nombre:"+n_Alumno+"\n" +
+                        "Email:"+e_Alumno+ "\n" +
+                        "Asignatura:"+a_Alumno+ "\n" +
+                        "Identificador:"+i_Alumno_string  ,Toast.LENGTH_LONG).show();
+            }
 
             /*
-                Toast.makeText(getBaseContext(),"Ya existe un alumno añadido con este identificador",Toast.LENGTH_LONG).show();
-
                 Toast.makeText(getBaseContext(),"El identificador esta vacio",Toast.LENGTH_LONG).show();
            */
-            Toast.makeText(getBaseContext(),"Alumno añadido"+"\n"+"Nombre:"+n_Alumno+"\n" +
-                "Email:"+e_Alumno+ "\n" +
-                "Asignatura:"+a_Alumno+ "\n" +
-                "Identificador:"+i_Alumno_string  ,Toast.LENGTH_LONG).show();
 
-            int arrayList_size = list.size();
-            for (int x=0;x<arrayList_size;x++){
-
-            }
         }
     }
 
-    private boolean checkIdentificador(int ident){
+    private boolean comprobarAlum(){
         String comprobante = identificador_input.getText().toString();
         int comprobante_int = Integer.parseInt(comprobante);
+        boolean willReturnTrue = false;
 
-        if (ident == comprobante_int){
-            return true;
-        } else {
-            return false;
+        for (alumno indList: list){
+            int currAlumnoID = indList.getId_alumno();
+            if (comprobante_int == currAlumnoID ){
+                willReturnTrue = true;
+            }
         }
+        return willReturnTrue;
     }
-
 
 }

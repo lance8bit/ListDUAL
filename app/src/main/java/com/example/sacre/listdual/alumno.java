@@ -5,7 +5,6 @@ import java.util.List;
 public class alumno {
 
     private int id_alumno;
-
     private String asignaturas_alumno;
     private String nombre_alumno, email_alumno;
 
